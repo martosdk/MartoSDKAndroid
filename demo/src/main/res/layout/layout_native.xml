@@ -86,8 +86,8 @@
             android:id="@+id/cta_btn"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="@drawable/drawable_carty_btn"
-            android:stateListAnimator="@animator/anim_carty_btn" />
+            android:background="@drawable/drawable_demo_btn"
+            android:stateListAnimator="@animator/anim_demo_btn" />
 
     </LinearLayout>
 

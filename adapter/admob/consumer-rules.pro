@@ -1,1 +1,1 @@
--keep class io.carty.bidad.sdk.admob.** { *; }
+-keep class com.mt.bidad.sdk.admob.** { *; }

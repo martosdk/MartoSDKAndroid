@@ -2,10 +2,10 @@ plugins {
     alias(libs.plugins.android.library)
 }
 
-apply from: '../../build-script/carty.gradle'
+apply from: '../../build-script/marto.gradle'
 
 android {
-    namespace 'io.carty.bidad.sdk.admob'
+    namespace 'com.mt.bidad.sdk.admob'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {

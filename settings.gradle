@@ -17,6 +17,7 @@ plugins {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
         flatDir {
@@ -31,7 +32,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CartySDKAndroid"
+rootProject.name = "MartoSDKAndroid"
 include ':demo'
 include ':adapter:admob'
 include ':adapter:levelplay'

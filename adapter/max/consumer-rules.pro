@@ -1,1 +1,1 @@
--keep class io.carty.bidad.sdk.max.** { *; }
+-keep class com.mt.bidad.sdk.max.** { *; }

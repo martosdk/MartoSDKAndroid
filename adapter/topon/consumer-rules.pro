@@ -1,1 +1,1 @@
--keep class io.carty.bidad.sdk.topon.** { *; }
+-keep class com.mt.bidad.sdk.topon.** { *; }

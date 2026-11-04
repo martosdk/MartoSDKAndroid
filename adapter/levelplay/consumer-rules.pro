@@ -1,1 +1,1 @@
--keep class com.ironsource.adapters.custom.carty.** { *; }
+-keep class com.ironsource.adapters.custom.marto.** { *; }

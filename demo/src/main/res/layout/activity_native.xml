@@ -18,8 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/drawable_carty_btn"
-        android:stateListAnimator="@animator/anim_carty_btn"
+        android:background="@drawable/drawable_demo_btn"
+        android:stateListAnimator="@animator/anim_demo_btn"
         android:text="load"
         android:textColor="#ffffff" />
 

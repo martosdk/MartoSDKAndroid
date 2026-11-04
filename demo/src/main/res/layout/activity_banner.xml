@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:background="@drawable/drawable_carty_btn"
-        android:stateListAnimator="@animator/anim_carty_btn"
+        android:background="@drawable/drawable_demo_btn"
+        android:stateListAnimator="@animator/anim_demo_btn"
         android:text="load 320 x 50"
         android:textColor="#ffffff" />
 
@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@drawable/drawable_carty_btn"
-        android:stateListAnimator="@animator/anim_carty_btn"
+        android:background="@drawable/drawable_demo_btn"
+        android:stateListAnimator="@animator/anim_demo_btn"
         android:text="load 320 x 100"
         android:textColor="#ffffff" />
 
@@ -31,8 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@drawable/drawable_carty_btn"
-        android:stateListAnimator="@animator/anim_carty_btn"
+        android:background="@drawable/drawable_demo_btn"
+        android:stateListAnimator="@animator/anim_demo_btn"
         android:text="load 300 x 250"
         android:textColor="#ffffff" />
 

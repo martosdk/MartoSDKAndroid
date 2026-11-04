@@ -3,14 +3,14 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-apply from: '../build-script/carty.gradle'
+apply from: '../build-script/marto.gradle'
 
 android {
-    namespace 'io.carty.bidad.demo'
+    namespace 'com.mt.bidad.demo'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        applicationId "io.carty.bidad.android.demo"
+        applicationId "com.mt.bidad.android.demo"
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 1

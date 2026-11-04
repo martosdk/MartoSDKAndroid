@@ -6,7 +6,7 @@
     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
     <application
-        android:name=".DemoApplication"
+        android:name="com.mt.bidad.demo.DemoApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Demo">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.mt.bidad.demo.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,11 +26,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.AppOpenActivity" />
-        <activity android:name=".ui.InterstitialActivity" />
-        <activity android:name=".ui.RewardActivity" />
-        <activity android:name=".ui.BannerActivity" />
-        <activity android:name=".ui.NativeActivity" />
+        <activity android:name="com.mt.bidad.demo.ui.AppOpenActivity" />
+        <activity android:name="com.mt.bidad.demo.ui.InterstitialActivity" />
+        <activity android:name="com.mt.bidad.demo.ui.RewardActivity" />
+        <activity android:name="com.mt.bidad.demo.ui.BannerActivity" />
+        <activity android:name="com.mt.bidad.demo.ui.NativeActivity" />
     </application>
 
 </manifest>

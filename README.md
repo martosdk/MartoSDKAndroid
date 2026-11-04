@@ -1,2 +1,2 @@
-# CartySDKAndroid
-CartySDK Android
+# MartoSDKAndroid
+MartoSDK Android

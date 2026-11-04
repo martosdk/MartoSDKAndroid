@@ -1,1 +1,1 @@
--keep class io.carty.bidad.sdk.tradplus.** { *; }
+-keep class com.mt.bidad.sdk.tradplus.** { *; }

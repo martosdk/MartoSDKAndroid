@@ -1,0 +1,115 @@
+package com.mt.bidad.sdk.topon;
+
+import android.content.Context;
+import android.util.Log;
+import android.util.Pair;
+
+import com.secmtp.sdk.core.api.ATBiddingListener;
+import com.secmtp.sdk.core.api.ATInitMediation;
+import com.secmtp.sdk.nativead.unitgroup.api.CustomNativeAdapter;
+
+import java.util.Map;
+
+import com.mt.bidad.sdk.openapi.CTAdError;
+import com.mt.bidad.sdk.openapi.CTAdRequest;
+import com.mt.bidad.sdk.openapi.CTAdSdk;
+import com.mt.bidad.sdk.openapi.CTBaseAd;
+import com.mt.bidad.sdk.openapi.CTGlobalSettings;
+import com.mt.bidad.sdk.openapi.nativead.CTNative;
+import com.mt.bidad.sdk.openapi.nativead.CTNativeLoadListener;
+
+public class CTToponNativeAd extends CustomNativeAdapter implements CTNativeLoadListener {
+    private String mUnitId;
+    private CTNative mCTNative;
+    private Context mContext;
+    private boolean mC2SBidding;
+    private ATBiddingListener mBiddingListener;
+
+    @Override
+    public boolean startBiddingRequest(Context context, Map<String, Object> serverExtra, Map<String, Object> localExtra, ATBiddingListener biddingListener) {
+        Log.i(CTToponMediation.TAG, "native startBiddingRequest");
+        mC2SBidding = true;
+        this.mBiddingListener = biddingListener;
+        loadCustomNetworkAd(context, serverExtra, localExtra);
+        return true;
+    }
+
+    @Override
+    public boolean setUserDataConsent(Context context, boolean isConsent, boolean isEUTraffic) {
+        CTGlobalSettings.getInstance().setGdpr(isConsent);
+        return true;
+    }
+
+    @Override
+    public void loadCustomNetworkAd(Context context, Map<String, Object> serviceExtras, Map<String, Object> localExtras) {
+        this.mContext = context;
+        mUnitId = ATInitMediation.getStringFromMap(serviceExtras, CTToponMediation.KEY_UNIT_ID);
+        Log.i(CTToponMediation.TAG, "loadNative mUnitId:" + mUnitId);
+        CTToponMediation.init(context, serviceExtras, new CTAdSdk.CTInitListener() {
+            @Override
+            public void onInitSuccess() {
+                loadAd();
+            }
+
+            @Override
+            public void onInitFailed(CTAdError adError) {
+                onAdLoadFailed(adError);
+            }
+        });
+    }
+
+    private void loadAd() {
+        CTAdRequest adRequest = new CTAdRequest.Builder()
+                .setPlacementId(getNetworkPlacementId())
+                .build();
+        mCTNative = new CTNative(adRequest, this);
+        mCTNative.loadAd();
+    }
+
+    @Override
+    public void destory() {
+    }
+
+    @Override
+    public String getNetworkPlacementId() {
+        return mUnitId;
+    }
+
+    @Override
+    public String getNetworkSDKVersion() {
+        return CTToponMediation.getNetworkSDKVersion();
+    }
+
+    @Override
+    public String getNetworkName() {
+        return CTToponMediation.getNetworkName();
+    }
+
+    @Override
+    public void onLoaded(CTBaseAd baseAd) {
+        CTToponCustomNativeAd nativeAd = new CTToponCustomNativeAd(mContext, mCTNative, baseAd);
+        if (mC2SBidding) {
+            CTToponMediation.onC2SBiddingSuccess(mCTNative, baseAd, mBiddingListener, nativeAd);
+        } else {
+            if (mLoadListener != null) {
+                mLoadListener.onAdCacheLoaded(nativeAd);
+            }
+        }
+    }
+
+    @Override
+    public void onLoadFailed(CTAdError adError) {
+        onAdLoadFailed(adError);
+    }
+
+    private void onAdLoadFailed(CTAdError adError) {
+        Pair<String, String> errorPair = CTToponMediation.getAdError(adError);
+        if (mC2SBidding) {
+            CTToponMediation.onC2SBiddingFailed(adError, mBiddingListener);
+        } else {
+            if (mLoadListener != null) {
+                mLoadListener.onAdLoadError(errorPair.first, errorPair.second);
+            }
+        }
+    }
+}
