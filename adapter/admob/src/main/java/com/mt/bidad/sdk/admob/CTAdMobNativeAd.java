@@ -46,8 +46,8 @@ public class CTAdMobNativeAd extends NativeAdMapper implements CTNativeLoadListe
 
     @Override
     public void onLoaded(CTBaseAd baseAd) {
-        mNativeAdCallback = mCallback.onSuccess(this);
         mapNativeAd(baseAd);
+        mNativeAdCallback = mCallback.onSuccess(this);
     }
 
     private void mapNativeAd(CTBaseAd baseAd) {
@@ -88,6 +88,7 @@ public class CTAdMobNativeAd extends NativeAdMapper implements CTNativeLoadListe
             View mediaView = mCTNative.getMediaView(mContext);
             if (mediaView != null) {
                 setMediaView(mediaView);
+                setHasVideoContent(true);
             }
             setOverrideClickHandling(true);
         }
