@@ -88,6 +88,7 @@ public class CTAdMobNativeAd extends NativeAdMapper implements CTNativeLoadListe
             View mediaView = mCTNative.getMediaView(mContext);
             if (mediaView != null) {
                 setMediaView(mediaView);
+                setHasVideoContent(true);
             }
             setOverrideClickHandling(true);
         }
